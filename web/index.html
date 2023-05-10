@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>MoIZI-WEB</title>
+    <style>
+      body {
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      
+      input[type="text"] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-right: 10px;
+        font-size: 16px;
+      }
+      
+      button {
+        padding: 10px 20px;
+        background-color: #4285f4;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      
+      img {
+        max-width: 100%;
+        margin-top: 20px;
+      }
+      
+      .message {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>MoIZI</h1>
+    <p>Молекуа атын енгізіңіз:</p>
+    <input type="text" id="compoundName">
+    <button id="searchButton">Іздеу</button>
+    <div id="imageContainer"></div>
+    <div id="messageContainer"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
