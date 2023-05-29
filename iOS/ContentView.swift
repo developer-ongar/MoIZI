@@ -6,7 +6,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            Color(.systemGray6) // Adding a light gray background color to fill the entire screen
+            Color(.systemGray6) 
             
             VStack {
                 TextField("Формула немесе аты(en)", text: $compoundName)
