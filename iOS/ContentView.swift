@@ -6,34 +6,50 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            Color(.systemGray6) 
+            Color(UIColor.systemBackground)
+                .ignoresSafeArea()
             
             VStack {
-                TextField("Формула немесе аты(en)", text: $compoundName)
-                    .padding()
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                
-                Button(action: {
-                    compoundFetcher.fetchCompoundInfo(compoundName: compoundName)
-                }) {
-                    Text("Izdeu")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.blue)
-                        .cornerRadius(10)
+                HStack {
+                    TextField("Іздеу", text: $compoundName)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 5)
+                        .background(Color.white)
+                        .cornerRadius(8)
+                        .font(.subheadline)
+                        .foregroundColor(.primary)
+                    
+                    Button(action: {
+                        compoundFetcher.fetchCompoundInfo(compoundName: compoundName)
+                    }) {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.white)
+                            .font(.title2)
+                            .padding(10)
+                            .background(Color.blue)
+                            .clipShape(Circle())
+                    }
                 }
+                .padding(.horizontal, 20)
+                .padding(.top, 20)
+                
+                Spacer()
                 
                 if let compoundImage = compoundFetcher.compoundImage {
                     compoundImage
                         .resizable()
-                        .scaledToFit()
-                        .padding()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .padding(.horizontal)
                 } else {
-                    Text("Осында молекуланың құрылымы көрсетіледі")
-                        .padding()
+                    Text("Химиялық қосылыстың формуласын немесе атын ағылшын әріптерімен жазыңыз.")
+                        .foregroundColor(.gray)
+                        .font(.subheadline)
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding(.horizontal, 20)
                 }
             }
-            .padding()
         }
     }
 }
